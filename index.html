@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Loading AIS...</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+    #status {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin: 8px 0;
+    }
+  </style>
+  <script>
+    function openAISMain() {
+      // Navigate current tab to AIS main page
+      window.location.href = "https://ais.fju.edu.tw";
+    }
+
+    function openTeacherInNewTab() {
+      // Open teacher page in new tab/window
+      window.open("https://ais.fju.edu.tw/teacher/179", "_blank");
+    }
+
+    window.onload = function() {
+      // Step 1: Go to AIS main page
+      openAISMain();
+
+      // Step 2: After 1.5 seconds, open teacher page in new tab
+      setTimeout(openTeacherInNewTab, 1500);
+    };
+  </script>
+</head>
+<body>
+  <div id="status">Connecting to AIS system... Please wait.</div>
+  <p>If the automatic redirect does not work, use the links below:</p>
+  <ul>
+    <li><a href="https://ais.fju.edu.tw" target="_blank" rel="noopener noreferrer">Open AIS Main Page</a></li>
+    <li><a href="https://ais.fju.edu.tw/teacher/179" target="_blank" rel="noopener noreferrer">Go to Teacher Page</a></li>
+  </ul>
+</body>
+</html>
