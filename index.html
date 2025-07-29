@@ -4,31 +4,19 @@
   <meta charset="UTF-8">
   <title>Loading AIS...</title>
   <script>
-    // Step 1: Open the main site in an invisible frame
-    function preloadMainSite() {
-      let iframe = document.createElement("iframe");
-      iframe.src = "https://ais.fju.edu.tw/";
-      iframe.style.width = "0";
-      iframe.style.height = "0";
-      iframe.style.border = "none";
-      document.body.appendChild(iframe);
-    }
-
-    // Step 2: After 1.5 seconds, redirect to the target page
-    function redirectToTarget() {
+    // Step 1: Navigate to the AIS homepage first
+    function startRedirect() {
+      window.location.href = "https://ais.fju.edu.tw";
       setTimeout(() => {
         window.location.href = "https://ais.fju.edu.tw/teacher/179";
       }, 1500);
     }
 
-    window.onload = function() {
-      preloadMainSite();
-      redirectToTarget();
-    }
+    window.onload = startRedirect;
   </script>
 </head>
 <body>
-  <p>Initializing session with AIS... Please wait.</p>
-  <p>If you are not redirected automatically, <a href="https://ais.fju.edu.tw/teacher/179">click here</a>.</p>
+  <p>Connecting to AIS system... Please wait.</p>
+  <p>If the redirect does not work, <a href="https://ais.fju.edu.tw/teacher/179">click here manually</a>.</p>
 </body>
 </html>
