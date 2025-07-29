@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loading AIS...</title>
+  <script>
+    // Step 1: Navigate to the AIS homepage first, then redirect to teacher page
+    function startRedirect() {
+      // First navigate to main site
+      window.location.href = "https://ais.fju.edu.tw";
+      // After 1.5 seconds, redirect to teacher page
+      setTimeout(() => {
+        window.location.href = "https://ais.fju.edu.tw/teacher/179";
+      }, 1500);
+    }
+
+    window.onload = startRedirect;
+  </script>
+</head>
+<body>
+  <p>Connecting to AIS system... Please wait.</p>
+  <p>If the redirect does not work, <a href="https://ais.fju.edu.tw/teacher/179">click here manually</a>.</p>
+</body>
+</html>
