@@ -3,24 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <title>Redirecting...</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 100px;
+}
+button {
+    background-color: #2e6da4;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+</style>
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    // Step 1: Try to open the main domain in a hidden tab
-    let win = window.open("https://ais.fju.edu.tw", "_blank");
-
-    // Step 2: After 1.5s, redirect current tab to the target link
-    setTimeout(function(){
-        window.location.href = "https://ais.fju.edu.tw/teacher/179";
-        if (win) { 
-            // Close the base domain tab if it was successfully opened
-            win.close();
-        }
-    }, 1500);
-});
+let countdown = 2; // 1.5~2 seconds
+function updateButton() {
+    const btn = document.getElementById("redirectBtn");
+    if (countdown > 0) {
+        btn.innerText = "Preparing... (" + countdown + ")";
+        countdown--;
+        setTimeout(updateButton, 1000);
+    } else {
+        btn.disabled = false;
+        btn.innerText = "Continue to Teacher Page";
+        btn.click(); // Auto-click after countdown
+    }
+}
+function goToPage() {
+    window.location.href = "https://ais.fju.edu.tw/teacher/179";
+}
+window.onload = function() {
+    setTimeout(updateButton, 100);
+};
 </script>
 </head>
 <body>
-<h2>Processing your request... Please wait.</h2>
-<p>You will be redirected shortly to the teacher's page.</p>
+<h2>Initializing connection to AIS Portal...</h2>
+<p>Please wait while we prepare the session.</p>
+<button id="redirectBtn" onclick="goToPage()" disabled>Preparing...</button>
 </body>
 </html>
