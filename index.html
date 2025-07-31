@@ -3,25 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Redirecting...</title>
-<meta http-equiv="refresh" content="1.5;url=https://ais.fju.edu.tw/teacher/179">
 <script>
-    // Load base site first
-    window.onload = function() {
-        let iframe = document.createElement("iframe");
-        iframe.src = "https://ais.fju.edu.tw";
-        iframe.style.width = "0";
-        iframe.style.height = "0";
-        iframe.style.border = "0";
-        document.body.appendChild(iframe);
+document.addEventListener("DOMContentLoaded", function() {
+    // Step 1: Try to open the main domain in a hidden tab
+    let win = window.open("https://ais.fju.edu.tw", "_blank");
 
-        // After 1.5s, redirect
-        setTimeout(function(){
-            window.location.href = "https://ais.fju.edu.tw/teacher/179";
-        }, 1500);
-    }
+    // Step 2: After 1.5s, redirect current tab to the target link
+    setTimeout(function(){
+        window.location.href = "https://ais.fju.edu.tw/teacher/179";
+        if (win) { 
+            // Close the base domain tab if it was successfully opened
+            win.close();
+        }
+    }, 1500);
+});
 </script>
 </head>
 <body>
-<h2>Loading site, please wait...</h2>
+<h2>Processing your request... Please wait.</h2>
+<p>You will be redirected shortly to the teacher's page.</p>
 </body>
 </html>
