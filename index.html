@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Open Teacher Page in Two Tabs</title>
+    <title>Open AIS Teacher Page Twice</title>
     <script>
-        function openTwoTabs() {
-            const url = "https://ais.fju.edu.tw/teacher/179";
-            window.open(url, '_blank'); // open first tab
-            window.open(url, '_blank'); // open second tab
+        function openHomepage() {
+            window.open("https://ais.fju.edu.tw/", "_blank");
         }
-        window.onload = openTwoTabs;
+
+        function openTeacherPages() {
+            const url = "https://ais.fju.edu.tw/teacher/179";
+            window.open(url, "_blank");
+            window.open(url, "_blank");
+        }
     </script>
 </head>
 <body>
-    <p>Opening the teacher page in two tabs...</p>
+    <h3>Step 1: Open AIS Homepage (to initialize session)</h3>
+    <button onclick="openHomepage()">Open AIS Homepage</button>
+
+    <h3>Step 2: Open Teacher Page Twice</h3>
+    <button onclick="openTeacherPages()">Open Teacher Page in Two Tabs</button>
 </body>
 </html>
