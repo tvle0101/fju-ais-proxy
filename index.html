@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Accessing AIS Teacher Page...</title>
+    <title>Accessing Teacher Page...</title>
     <script>
-        // Step 1: Open AIS homepage first
-        window.open("https://ais.fju.edu.tw", "_blank");
-        // Step 2: After 2 seconds, redirect current tab to the teacher page
-        setTimeout(function(){
-            window.location.href = "https://ais.fju.edu.tw/teacher/179";
-        }, 2000);
+        async function redirectAIS() {
+            // Step 1: Load AIS homepage first (same tab)
+            window.location.href = "https://ais.fju.edu.tw/";
+            
+            // Step 2: After waiting, navigate to target page
+            setTimeout(function(){
+                window.location.href = "https://ais.fju.edu.tw/teacher/179";
+            }, 4000); // 4 seconds delay to allow session initialization
+        }
+        window.onload = redirectAIS;
     </script>
 </head>
 <body>
-    <p>Preparing access... If not redirected, <a href="https://ais.fju.edu.tw/teacher/179">click here</a>.</p>
+    <p>Connecting to AIS system... Please wait.</p>
+    <p>If this does not work, <a href="https://ais.fju.edu.tw/">click here</a> first, then try the link again.</p>
 </body>
 </html>
