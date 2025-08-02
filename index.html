@@ -1,21 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Redirecting to Teacher Page...</title>
-    <script>
-        // Detect if we've already visited homepage
-        if (!sessionStorage.getItem("ais_init")) {
-            // Mark initialization and go to homepage first
-            sessionStorage.setItem("ais_init", "true");
-            window.location.replace("https://ais.fju.edu.tw/");
-        } else {
-            // If homepage visited, now go to target page
-            sessionStorage.removeItem("ais_init");
-            window.location.replace("https://ais.fju.edu.tw/teacher/179");
-        }
-    </script>
+  <meta charset="UTF-8" />
+  <title>AIS Multi-Step Entry</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+      background-color: #f9f9f9;
+    }
+    h2 {
+      color: #333;
+      margin-bottom: 24px;
+    }
+    button {
+      padding: 14px 28px;
+      font-size: 18px;
+      margin: 16px 8px;
+      cursor: pointer;
+      border: none;
+      border-radius: 6px;
+      background-color: #007bff;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
-    <p>Redirecting, please wait...</p>
+  <h2>Access the Teacher Page on AIS</h2>
+  <p><strong>Step 1:</strong> Click the button below to open the AIS main page:</p>
+  <button onclick="window.location.href='https://ais.fju.edu.tw'">Open AIS Main Page</button>
+  
+  <p><strong>Step 2:</strong> Come back here and open the page link below:</p>
+  <button onclick="window.location.href='https://ais.fju.edu.tw/teacher/179'">Go to Teacher Page</button>
 </body>
 </html>
