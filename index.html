@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Go to AIS Teacher Page</title>
+    <title>Open Teacher Page in Two Tabs</title>
+    <script>
+        function openTwoTabs() {
+            const url = "https://ais.fju.edu.tw/teacher/179";
+            window.open(url, '_blank'); // open first tab
+            window.open(url, '_blank'); // open second tab
+        }
+        window.onload = openTwoTabs;
+    </script>
 </head>
 <body>
-    <h2>To access the Teacher Page:</h2>
-    <ol>
-        <li><a href="https://ais.fju.edu.tw/" target="_blank">Click here to open AIS main site first</a></li>
-        <li>Then click this link: <a href="https://ais.fju.edu.tw/teacher/179">Teacher Page</a></li>
-    </ol>
-    <p>This step ensures AIS loads correctly on first visit.</p>
+    <p>Opening the teacher page in two tabs...</p>
 </body>
 </html>
