@@ -1,27 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Accessing Teacher Page...</title>
+    <title>Redirecting to Teacher Page...</title>
     <script>
-        function initRedirect() {
-            // Step 1: Load AIS homepage in iframe to set session cookies
-            let iframe = document.createElement("iframe");
-            iframe.src = "https://ais.fju.edu.tw/";
-            iframe.style.width = "0";
-            iframe.style.height = "0";
-            iframe.style.border = "none";
-            document.body.appendChild(iframe);
-
-            // Step 2: Wait 5 seconds for session to initialize, then redirect
-            setTimeout(function () {
-                window.location.href = "https://ais.fju.edu.tw/teacher/179";
-            }, 5000);
+        // Detect if we've already visited homepage
+        if (!sessionStorage.getItem("ais_init")) {
+            // Mark initialization and go to homepage first
+            sessionStorage.setItem("ais_init", "true");
+            window.location.replace("https://ais.fju.edu.tw/");
+        } else {
+            // If homepage visited, now go to target page
+            sessionStorage.removeItem("ais_init");
+            window.location.replace("https://ais.fju.edu.tw/teacher/179");
         }
-        window.onload = initRedirect;
     </script>
 </head>
 <body>
-    <p>Connecting to AIS system... Please wait 5 seconds.</p>
-    <p>If redirection fails, try logging in manually first.</p>
+    <p>Redirecting, please wait...</p>
 </body>
 </html>
